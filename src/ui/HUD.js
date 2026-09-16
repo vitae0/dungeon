@@ -1,0 +1,4 @@
+export class HUD{
+  constructor(root){this.root=root;this.last=''}
+  render(state){if(!state.player)return;const w=state.weapon;const html=`<div class="topbar"><b>DECK ${state.floor} · ROOM ${state.roomInFloor+1}/12</b><div class="credits">◈ ${state.player.coins||0} CR</div></div><div class="health"><span>HP ${Math.ceil(state.player.hp)}/${Math.ceil(state.player.maxHp)}</span><i style="width:${Math.max(0,state.player.hp/state.player.maxHp*100)}%"></i></div><div class="reticle ${state.input.mouse.right&&state.camera.locked?'locked':''}"></div><div class="weaponinfo"><b>${w?.name||''}</b><span>${state.reloading?'RELOADING':w?.kind==='melee'?'MELEE':`${state.ammo}/${w?.mag||0}`}</span></div><div class="controls">WASD move · Mouse camera · LMB attack · RMB lock · R reload</div>`;if(html!==this.last){this.root.innerHTML=html;this.last=html}}
+}
