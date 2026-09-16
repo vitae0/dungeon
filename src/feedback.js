@@ -1,52 +1,33 @@
-const hud=document.getElementById('hud');
-const game=document.getElementById('game');
-const overlay=document.createElement('div');
-overlay.id='combat-feedback';
-overlay.innerHTML='<div class="muzzle"></div><div class="slash"></div><div class="attack-pulse"></div><div class="attack-label"></div>';
-document.body.appendChild(overlay);
+const overlay=document.getElementById('combat-feedback')||(()=>{const el=document.createElement('div');el.id='combat-feedback';el.innerHTML='<div class="muzzle"></div><div class="slash"></div><div class="attack-pulse"></div><div class="attack-label"></div>';document.body.appendChild(el);return el})();
 
 let audioCtx=null;
 function audio(){if(!audioCtx)audioCtx=new (window.AudioContext||window.webkitAudioContext)();return audioCtx}
-function tone(freq,dur=.05,type='square',gain=.025,slide=0){
-  try{const c=audio(),o=c.createOscillator(),g=c.createGain();o.type=type;o.frequency.setValueAtTime(freq,c.currentTime);if(slide)o.frequency.exponentialRampToValueAtTime(Math.max(40,freq+slide),c.currentTime+dur);g.gain.setValueAtTime(gain,c.currentTime);g.gain.exponentialRampToValueAtTime(.0001,c.currentTime+dur);o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+dur)}catch{}
+function tone(freq,dur=.05,type='square',gain=.025,slide=0,delay=0){
+  try{const c=audio(),o=c.createOscillator(),g=c.createGain(),t=c.currentTime+delay;o.type=type;o.frequency.setValueAtTime(freq,t);if(slide)o.frequency.exponentialRampToValueAtTime(Math.max(40,freq+slide),t+dur);g.gain.setValueAtTime(gain,t);g.gain.exponentialRampToValueAtTime(.0001,t+dur);o.connect(g);g.connect(c.destination);o.start(t);o.stop(t+dur)}catch{}
 }
-function weaponInfo(){
-  const el=document.querySelector('.weaponinfo');
-  const text=el?.innerText||'';
-  return {melee:/MELEE/i.test(text),reloading:/RELOADING/i.test(text),text};
+function shotSound(){tone(210,.035,'square',.035,-105);tone(72,.06,'triangle',.022,-22,.006)}
+function meleeSound(){tone(175,.07,'sawtooth',.03,-85);tone(95,.055,'triangle',.018,-38,.025)}
+function reloadSound(){
+  tone(520,.025,'square',.018,-180);
+  tone(280,.035,'square',.016,-90,.055);
+  tone(760,.022,'triangle',.014,-240,.12);
+  tone(410,.03,'square',.012,-120,.19);
 }
-function flashLabel(text,kind='shot'){
-  const el=overlay.querySelector('.attack-label');
-  el.textContent=text;el.className='attack-label show '+kind;
-  clearTimeout(el._t);el._t=setTimeout(()=>el.className='attack-label',120);
-}
-function pulseClass(cls,ms=90){overlay.classList.remove(cls);void overlay.offsetWidth;overlay.classList.add(cls);clearTimeout(overlay['_'+cls]);overlay['_'+cls]=setTimeout(()=>overlay.classList.remove(cls),ms)}
 
-addEventListener('mousedown',e=>{
-  if(e.button!==0)return;
-  if(document.getElementById('modal')?.classList.contains('show'))return;
-  const w=weaponInfo();
-  if(w.melee){
-    pulseClass('melee-swing',170);
-    tone(150,.07,'sawtooth',.035,-70);
-    setTimeout(()=>tone(90,.06,'triangle',.02,-35),28);
-    flashLabel('SWING','melee');
-  }else if(w.reloading){
-    pulseClass('dry-fire',90);tone(110,.035,'square',.015,-30);flashLabel('RELOAD','dry');
-  }else{
-    pulseClass('gun-fire',85);
-    tone(185,.035,'square',.04,-90);
-    tone(62,.055,'triangle',.022,-15);
-    flashLabel('FIRE','shot');
-  }
+let lastClass='';
+const observer=new MutationObserver(()=>{
+  const now=overlay.className;
+  if(now===lastClass)return;
+  if(overlay.classList.contains('gun-fire')&&!lastClass.includes('gun-fire'))shotSound();
+  if(overlay.classList.contains('melee-swing')&&!lastClass.includes('melee-swing'))meleeSound();
+  lastClass=now;
 });
+observer.observe(overlay,{attributes:true,attributeFilter:['class']});
 
-let lastAmmo='';
+let wasReloading=false;
 setInterval(()=>{
-  const t=document.querySelector('.weaponinfo span')?.textContent||'';
-  if(lastAmmo&&/^\d+\/\d+$/.test(lastAmmo)&&/^\d+\/\d+$/.test(t)){
-    const a=parseInt(lastAmmo),b=parseInt(t);
-    if(b<a) pulseClass('confirmed-shot',70);
-  }
-  lastAmmo=t;
-},40);
+  const text=document.querySelector('.weaponinfo span')?.textContent?.trim()||'';
+  const reloading=/RELOADING/i.test(text);
+  if(reloading&&!wasReloading)reloadSound();
+  wasReloading=reloading;
+},35);
