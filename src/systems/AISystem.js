@@ -7,6 +7,6 @@ export class AISystem{
     else if(role==='blink'){move.copyFrom(side).scaleInPlace(.9);if(e.think<=0){e.think=2.2;e.node.position.addInPlace(side.scale((Math.random()>.5?1:-1)*7))}}
     else move.copyFrom(dir);
     if(move.lengthSquared()>0){move.normalize().scaleInPlace(e.speed*dt);const before=e.node.position.clone();e.node.position.addInPlace(move);state.world.clamp(e.node.position,e.radius);if(Vector3.DistanceSquared(before,e.node.position)<.0001)e.phase=(e.phase||0)+Math.PI*.7}e.node.rotation.y=Math.atan2(dir.x,dir.z);
-    if(role!=='chase'&&role!=='charge'&&e.shotCd<=0&&dist<42){e.shotCd=role==='sniper'?1.7:role==='burst'?.8:1.15;state.bus.emit('enemy:fire',{enemy:e,dir})}}
+    if(role!=='chase'&&role!=='charge'&&e.shotCd<=0&&dist<42){e.shotCd=role==='sniper'?1.7:(role==='burst'?.8:1.15);state.bus.emit('enemy:fire',{enemy:e,dir})}}
   }
 }
