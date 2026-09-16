@@ -21,7 +21,7 @@ export class AISystem{
       if(move.lengthSquared()>0){move.normalize().scaleInPlace(e.speed*dt);const before=e.node.position.clone(),candidate=before.add(move);if(!state.world.blocked(candidate,e.radius)){e.node.position.copyFrom(candidate)}else{e.phase+=1.7;const dodge=before.add(side.scale((Math.random()>.5?1:-1)*e.speed*dt*1.4));if(!state.world.blocked(dodge,e.radius))e.node.position.copyFrom(dodge)}state.world.clamp(e.node.position,e.radius)}
       e.node.rotation.y=Math.atan2(dir.x,dir.z);
       const canShoot=RANGED.has(role)||e.boss;
-      if(canShoot&&e.shotCd<=0&&dist<Math.min(e.awareness*1.15,68)){e.shotCd=role==='sniper'?1.75:(role==='burst'?.78:(e.boss?.62:1.12));state.bus.emit('enemy:fire',{enemy:e,dir})}
+      if(canShoot&&e.shotCd<=0&&dist<Math.min(e.awareness*1.15,68)){e.shotCd=role==='sniper'?1.75:(role==='burst' ? .78 : (e.boss ? .62 : 1.12));state.bus.emit('enemy:fire',{enemy:e,dir})}
     }
   }
   patrol(e,dt,state){
