@@ -1,6 +1,6 @@
 export const CLASSES={
   vanguard:{name:'Vanguard',color:0x43d9ff,hp:190,speed:7.2,damage:1.02,aim:1.0,melee:1.18,slots:['pulse','blade','rail'],desc:'Dengeli, dayanıklı, yakın dövüşte güçlü.'},
-  ghost:{name:'Ghost',color:0xff55c8,hp:125,speed:9.2,damage:1.08,aim:1.35,crit:.16,slots:['dual','needler','cherub'],desc:'Hızlı, yüksek crit ve güçlü aim assist.'},
+  ghost:{name:'Ghost',color:0xff55c8,hp:125,speed:9.2,damage:1.08,aim:1.35,crit:.16,slots:['dual','needler','cherub'],desc:'Hızlı, yüksek crit ve çevik oynanış.'},
   titan:{name:'Titan',color:0xffa34a,hp:255,speed:6.1,damage:1.2,aim:.9,melee:1.32,slots:['gravedigger','hammer','mortar'],desc:'Yavaş ama ağır vurur, melee ve patlayıcı uzmanı.'},
   oracle:{name:'Oracle',color:0x9d7cff,hp:145,speed:7.7,damage:1.05,aim:1.25,slots:['sunbeam','orbit','scythe'],desc:'Enerji silahları ve alan kontrolü.'}
 };
@@ -10,15 +10,15 @@ export const RARITY={
 };
 
 export const WEAPONS=[
-{id:'pulse',name:'Neon Pulse',type:'Pulse Carbine',rarity:'common',kind:'gun',damage:22,rate:6.2,speed:38,range:52,mag:24,reload:1.1,spread:.02,color:0x4ce6ff,desc:'Temiz recoil, güvenilir orta menzil.'},
-{id:'dual',name:'Twin Seraph',type:'Dual Pistols',rarity:'uncommon',kind:'gun',damage:15,rate:10.5,speed:34,range:38,mag:36,reload:.95,spread:.06,color:0xff82cf,desc:'İki elde hızlı, hareketli oynanış.'},
-{id:'needler',name:'Needle Rain',type:'Needle SMG',rarity:'rare',kind:'gun',damage:9,rate:17,speed:42,range:34,mag:52,reload:1.18,spread:.10,color:0x78d8ff,desc:'Yakın-orta menzilde yoğun mermi yağmuru.'},
-{id:'gravedigger',name:'Gravedigger',type:'Scatter Shotgun',rarity:'rare',kind:'shotgun',damage:12,rate:1.45,speed:30,range:22,mag:7,reload:1.45,spread:.24,pellets:9,color:0xffc06e,desc:'Yakında vahşi, duvar arkasına güvenmez.'},
-{id:'rail',name:'Rail Prayer',type:'Anti-Materiel Rail Rifle',rarity:'legendary',kind:'rail',damage:170,rate:.58,speed:85,range:95,mag:4,reload:2.05,pierce:5,aimAssist:.72,color:0xc78cff,desc:'Çok güçlü uzun menzil. Ağır aim assist ve delme.'},
-{id:'lance',name:'Void Lance',type:'Void Rifle',rarity:'epic',kind:'rail',damage:115,rate:.85,speed:72,range:82,mag:6,reload:1.7,pierce:3,aimAssist:.55,color:0x8f83ff,desc:'Uzun menzilde hassas, hedefe hafifçe yapışır.'},
-{id:'cherub',name:'Cherub Swarm',type:'Homing Micro-Missile',rarity:'epic',kind:'homing',damage:31,rate:4.1,speed:21,range:58,mag:18,reload:1.4,turn:4.5,color:0xffee88,desc:'Mikro füzeler en yakın hedefe kıvrılır.'},
-{id:'mortar',name:'Ember Mortar',type:'Grenade Mortar',rarity:'epic',kind:'grenade',damage:92,rate:.8,speed:18,range:46,mag:5,reload:2.0,blast:3.4,color:0xff704c,desc:'Yavaş küre, duvara çarptığında patlar.'},
-{id:'sunbeam',name:'Sunbeam',type:'Beam Cannon',rarity:'legendary',kind:'beam',damage:58,rate:8.5,speed:90,range:68,mag:70,reload:2.1,aimAssist:.38,color:0xffef9a,desc:'Sürekli enerji huzmesi, uzakta hafif aim assist.'},
+{id:'pulse',name:'Neon Pulse',type:'Pulse Carbine',rarity:'common',kind:'gun',damage:22,rate:6.2,speed:62,range:70,mag:24,reload:1.1,spread:.02,color:0x4ce6ff,desc:'Temiz recoil, güvenilir orta menzil.'},
+{id:'dual',name:'Twin Seraph',type:'Dual Pistols',rarity:'uncommon',kind:'gun',damage:15,rate:10.5,speed:58,range:54,mag:36,reload:.95,spread:.06,color:0xff82cf,desc:'İki elde hızlı, hareketli oynanış.'},
+{id:'needler',name:'Needle Rain',type:'Needle SMG',rarity:'rare',kind:'gun',damage:9,rate:17,speed:72,range:50,mag:52,reload:1.18,spread:.10,color:0x78d8ff,desc:'Yakın-orta menzilde yoğun mermi yağmuru.'},
+{id:'gravedigger',name:'Gravedigger',type:'Scatter Shotgun',rarity:'rare',kind:'shotgun',damage:12,rate:1.45,speed:52,range:28,mag:7,reload:1.45,spread:.24,pellets:9,color:0xffc06e,desc:'Yakında vahşi, duvar arkasına güvenmez.'},
+{id:'rail',name:'Rail Prayer',type:'Anti-Materiel Rail Rifle',rarity:'legendary',kind:'rail',damage:170,rate:.58,speed:140,range:120,mag:4,reload:2.05,pierce:5,color:0xc78cff,desc:'Çok güçlü uzun menzil. Hızlı ve delici.'},
+{id:'lance',name:'Void Lance',type:'Void Rifle',rarity:'epic',kind:'rail',damage:115,rate:.85,speed:120,range:105,mag:6,reload:1.7,pierce:3,color:0x8f83ff,desc:'Uzun menzilde hızlı ve hassas.'},
+{id:'cherub',name:'Cherub Swarm',type:'Homing Micro-Missile',rarity:'epic',kind:'homing',damage:31,rate:4.1,speed:36,range:72,mag:18,reload:1.4,turn:4.5,color:0xffee88,desc:'Mikro füzeler en yakın hedefe kıvrılır.'},
+{id:'mortar',name:'Ember Mortar',type:'Grenade Mortar',rarity:'epic',kind:'grenade',damage:92,rate:.8,speed:28,range:58,mag:5,reload:2.0,blast:3.4,color:0xff704c,desc:'Ağır küre, duvara çarptığında patlar.'},
+{id:'sunbeam',name:'Sunbeam',type:'Beam Cannon',rarity:'legendary',kind:'beam',damage:58,rate:8.5,speed:150,range:90,mag:70,reload:2.1,color:0xffef9a,desc:'Sürekli enerji huzmesi.'},
 {id:'orbit',name:'Hex Orbit',type:'Orbital Caster',rarity:'mythic',kind:'orbital',damage:42,rate:.62,range:7,mag:0,reload:0,color:0xa76cff,desc:'Etrafında dönen neon küreler üretir.'},
 {id:'blade',name:'Cathedral Blade',type:'Monoblade',rarity:'uncommon',kind:'melee',damage:105,rate:2.25,range:3.0,arc:1.9,color:0xeaf7ff,desc:'Tam önünde geniş ve hızlı bir kesiş.'},
 {id:'scythe',name:'Moon Scythe',type:'Phase Scythe',rarity:'epic',kind:'melee',damage:165,rate:1.2,range:4.1,arc:2.35,color:0xd697ff,desc:'Çok geniş ön hitbox ve uzun erişim.'},
@@ -52,7 +52,7 @@ export const BOSSES=[
 export const UPGRADES=[
 {name:'Overclock',desc:'+18% attack speed',apply:p=>p.attackSpeed*=1.18},
 {name:'Hardlight Plating',desc:'+45 max HP ve +45 heal',apply:p=>{p.maxHp+=45;p.hp=Math.min(p.maxHp,p.hp+45)}},
-{name:'Smart Optics',desc:'+25% aim assist gücü',apply:p=>p.aim*=1.25},
+{name:'Smart Optics',desc:'+8% crit chance',apply:p=>p.crit=Math.min(.65,(p.crit||0)+.08)},
 {name:'Monomolecular Edge',desc:'+28% melee damage',apply:p=>p.melee*=1.28},
 {name:'Boss Protocol',desc:'+30% boss damage',apply:p=>p.bossDamage*=1.3},
 {name:'Mag-Coil',desc:'+60% coin çekim mesafesi',apply:p=>p.pickup*=1.6},
