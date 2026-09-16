@@ -1,64 +1,72 @@
 export const CLASSES={
- vanguard:{name:'Vanguard',color:0x5da9ff,desc:'Daha dayanıklı. Shotgun + blade başlangıcı.',hp:170,speed:8.2,damage:1.05,slots:['gravedigger','cathedral_blade','needle_rain']},
- ranger:{name:'Ranger',color:0x64e6a6,desc:'Uzak menzil ve güçlü aim assist.',hp:120,speed:9.3,damage:1.0,aim:1.65,slots:['void_lance','needle_rain','cherub_swarm']},
- occultist:{name:'Occultist',color:0xc387ff,desc:'Homing, kritik ve bullet-hell kontrolü.',hp:110,speed:8.8,damage:1.12,crit:.14,slots:['cherub_swarm','hex_orbit','moon_scythe']},
- berserker:{name:'Berserker',color:0xff6b6b,desc:'Yakın dövüş, yüksek hasar, kısa cooldown.',hp:145,speed:9.0,damage:1.18,melee:1.35,slots:['saintbreaker','cathedral_blade','black_comet']}
+  vanguard:{name:'Vanguard',color:0x43d9ff,hp:190,speed:7.2,damage:1.02,aim:1.0,melee:1.18,slots:['pulse','blade','rail'],desc:'Dengeli, dayanıklı, yakın dövüşte güçlü.'},
+  ghost:{name:'Ghost',color:0xff55c8,hp:125,speed:9.2,damage:1.08,aim:1.35,crit:.16,slots:['dual','needler','cherub'],desc:'Hızlı, yüksek crit ve güçlü aim assist.'},
+  titan:{name:'Titan',color:0xffa34a,hp:255,speed:6.1,damage:1.2,aim:.9,melee:1.32,slots:['gravedigger','hammer','mortar'],desc:'Yavaş ama ağır vurur, melee ve patlayıcı uzmanı.'},
+  oracle:{name:'Oracle',color:0x9d7cff,hp:145,speed:7.7,damage:1.05,aim:1.25,slots:['sunbeam','orbit','scythe'],desc:'Enerji silahları ve alan kontrolü.'}
 };
-export const RARITY={common:{mul:1,color:'#d8dbe3'},uncommon:{mul:1.12,color:'#6ee7a1'},rare:{mul:1.28,color:'#65a9ff'},epic:{mul:1.48,color:'#c888ff'},legendary:{mul:1.75,color:'#ffd166'},mythic:{mul:2.15,color:'#ff6fae'}};
+
+export const RARITY={
+ common:{label:'COMMON',color:'#a9b4c4',mul:1},uncommon:{label:'UNCOMMON',color:'#63e6a3',mul:1.08},rare:{label:'RARE',color:'#63a7ff',mul:1.18},epic:{label:'EPIC',color:'#b56cff',mul:1.32},legendary:{label:'LEGENDARY',color:'#ffb347',mul:1.52},mythic:{label:'MYTHIC',color:'#ff4f8b',mul:1.8}
+};
+
 export const WEAPONS=[
- {id:'needle_rain',name:'Needle Rain',rarity:'common',type:'SMG',kind:'gun',desc:'Hızlı, düşük recoil, yakın-orta menzil.',damage:10,rate:13,mag:54,reload:1.1,speed:32,spread:.045,range:34},
- {id:'gravedigger',name:'Gravedigger',rarity:'uncommon',type:'Shotgun',kind:'gun',desc:'Kısa menzilde dokuz pellet. Kalabalığı biçer.',damage:13,rate:1.35,mag:7,reload:1.45,speed:27,spread:.17,pellets:9,range:23},
- {id:'void_lance',name:'Void Lance',rarity:'epic',type:'Anti-Materiel Lance',kind:'gun',desc:'Çok uzak menzil, ağır hasar, güçlü aim assist, delici.',damage:150,rate:.62,mag:4,reload:1.95,speed:50,spread:0,range:80,pierce:5,aimAssist:2.4},
- {id:'cherub_swarm',name:'Cherub Swarm',rarity:'rare',type:'Homing Launcher',kind:'homing',desc:'Yavaş fakat agresif takip eden küresel mermiler.',damage:34,rate:3.2,mag:18,reload:1.35,speed:19,turn:5.4,range:55},
- {id:'black_comet',name:'Black Comet',rarity:'legendary',type:'Heavy Scattergun',kind:'gun',desc:'Dev saçılma konisi, ağır pelletler ve geri tepme.',damage:36,rate:.7,mag:4,reload:2.1,speed:30,spread:.24,pellets:12,range:28},
- {id:'hex_orbit',name:'Hex Orbit',rarity:'epic',type:'Orbital Caster',kind:'orbit',desc:'Etrafında dönen küreler üretir; temas edenleri parçalar.',damage:28,rate:.9,mag:7,reload:1.5,range:12},
- {id:'rail_prayer',name:'Rail Prayer',rarity:'legendary',type:'Rail Rifle',kind:'gun',desc:'Charge hissi veren, aşırı güçlü tek çizgi atış. Aim assist yüksek.',damage:245,rate:.38,mag:3,reload:2.4,speed:62,spread:0,range:95,pierce:9,aimAssist:3.2},
- {id:'ember_mortar',name:'Ember Mortar',rarity:'rare',type:'Grenade Mortar',kind:'grenade',desc:'Yere çarpınca patlayan ağır küre. Alan hasarı.',damage:88,rate:.8,mag:5,reload:1.8,speed:18,range:38,blast:5.5},
- {id:'frost_needles',name:'Frost Needles',rarity:'uncommon',type:'Burst Rifle',kind:'burst',desc:'Üçlü burst. İsabet alan düşmanı kısa süre yavaşlatır.',damage:24,rate:3.5,mag:30,reload:1.3,speed:40,spread:.02,burst:3,slow:.45,range:52},
- {id:'sunbeam',name:'Sunbeam',rarity:'mythic',type:'Beam Cannon',kind:'beam',desc:'Kısa süreli sürekli ışın. Düşük hareket kabiliyeti, korkunç DPS.',damage:70,rate:5.5,mag:36,reload:2.1,range:65,aimAssist:2.8},
- {id:'cathedral_blade',name:'Cathedral Blade',rarity:'uncommon',type:'Longsword',kind:'melee',desc:'Geniş yay, hızlı toparlanma.',damage:105,rate:2.0,range:3.2,arc:1.55},
- {id:'moon_scythe',name:'Moon Scythe',rarity:'epic',type:'Scythe',kind:'melee',desc:'Çok geniş yay ve uzun menzil.',damage:170,rate:1.05,range:4.6,arc:2.5},
- {id:'saintbreaker',name:'Saintbreaker',rarity:'legendary',type:'Warhammer',kind:'melee',desc:'Yavaş ama vurduğu yerde küçük şok dalgası.',damage:300,rate:.56,range:3.6,arc:1.05,blast:3.4},
- {id:'twin_seraph',name:'Twin Seraph',rarity:'rare',type:'Dual Pistols',kind:'gun',desc:'İki hızlı mermi, yüksek hareketli oynanış.',damage:22,rate:7.5,mag:32,reload:.95,speed:38,spread:.035,pellets:2,range:45}
+{id:'pulse',name:'Neon Pulse',type:'Pulse Carbine',rarity:'common',kind:'gun',damage:22,rate:6.2,speed:38,range:52,mag:24,reload:1.1,spread:.02,color:0x4ce6ff,desc:'Temiz recoil, güvenilir orta menzil.'},
+{id:'dual',name:'Twin Seraph',type:'Dual Pistols',rarity:'uncommon',kind:'gun',damage:15,rate:10.5,speed:34,range:38,mag:36,reload:.95,spread:.06,color:0xff82cf,desc:'İki elde hızlı, hareketli oynanış.'},
+{id:'needler',name:'Needle Rain',type:'Needle SMG',rarity:'rare',kind:'gun',damage:9,rate:17,speed:42,range:34,mag:52,reload:1.18,spread:.10,color:0x78d8ff,desc:'Yakın-orta menzilde yoğun mermi yağmuru.'},
+{id:'gravedigger',name:'Gravedigger',type:'Scatter Shotgun',rarity:'rare',kind:'shotgun',damage:12,rate:1.45,speed:30,range:22,mag:7,reload:1.45,spread:.24,pellets:9,color:0xffc06e,desc:'Yakında vahşi, duvar arkasına güvenmez.'},
+{id:'rail',name:'Rail Prayer',type:'Anti-Materiel Rail Rifle',rarity:'legendary',kind:'rail',damage:170,rate:.58,speed:85,range:95,mag:4,reload:2.05,pierce:5,aimAssist:.72,color:0xc78cff,desc:'Çok güçlü uzun menzil. Ağır aim assist ve delme.'},
+{id:'lance',name:'Void Lance',type:'Void Rifle',rarity:'epic',kind:'rail',damage:115,rate:.85,speed:72,range:82,mag:6,reload:1.7,pierce:3,aimAssist:.55,color:0x8f83ff,desc:'Uzun menzilde hassas, hedefe hafifçe yapışır.'},
+{id:'cherub',name:'Cherub Swarm',type:'Homing Micro-Missile',rarity:'epic',kind:'homing',damage:31,rate:4.1,speed:21,range:58,mag:18,reload:1.4,turn:4.5,color:0xffee88,desc:'Mikro füzeler en yakın hedefe kıvrılır.'},
+{id:'mortar',name:'Ember Mortar',type:'Grenade Mortar',rarity:'epic',kind:'grenade',damage:92,rate:.8,speed:18,range:46,mag:5,reload:2.0,blast:3.4,color:0xff704c,desc:'Yavaş küre, duvara çarptığında patlar.'},
+{id:'sunbeam',name:'Sunbeam',type:'Beam Cannon',rarity:'legendary',kind:'beam',damage:58,rate:8.5,speed:90,range:68,mag:70,reload:2.1,aimAssist:.38,color:0xffef9a,desc:'Sürekli enerji huzmesi, uzakta hafif aim assist.'},
+{id:'orbit',name:'Hex Orbit',type:'Orbital Caster',rarity:'mythic',kind:'orbital',damage:42,rate:.62,range:7,mag:0,reload:0,color:0xa76cff,desc:'Etrafında dönen neon küreler üretir.'},
+{id:'blade',name:'Cathedral Blade',type:'Monoblade',rarity:'uncommon',kind:'melee',damage:105,rate:2.25,range:3.0,arc:1.9,color:0xeaf7ff,desc:'Tam önünde geniş ve hızlı bir kesiş.'},
+{id:'scythe',name:'Moon Scythe',type:'Phase Scythe',rarity:'epic',kind:'melee',damage:165,rate:1.2,range:4.1,arc:2.35,color:0xd697ff,desc:'Çok geniş ön hitbox ve uzun erişim.'},
+{id:'hammer',name:'Saintbreaker',type:'Shock Hammer',rarity:'legendary',kind:'melee',damage:255,rate:.66,range:3.45,arc:1.65,shock:3.1,color:0xffad67,desc:'Ön konide ağır darbe, küçük şok dalgası.'}
 ];
+
+const colors=[0x54e1ff,0xff5ca8,0x7dff85,0xffbc57,0xa985ff,0xff6b6b,0x5ff0cb,0xf2ff66,0x6e8cff,0xff8a52,0x68ffde,0xd87cff];
 export const ENEMIES=[
- {id:'crawler',name:'Crawler',hp:80,speed:4.6,r:.7,ai:'chase',color:0x71d66f,damage:13},
- {id:'archer',name:'Bone Archer',hp:95,speed:3.1,r:.75,ai:'shooter',color:0xe0d7b8,damage:14},
- {id:'cultist',name:'Cultist',hp:115,speed:3.0,r:.8,ai:'radial',color:0xd95872,damage:15},
- {id:'wisp',name:'Wisp',hp:70,speed:5.0,r:.55,ai:'orbit',color:0x67c8ff,damage:12,flying:true},
- {id:'brute',name:'Brute',hp:340,speed:2.4,r:1.05,ai:'charge',color:0xb57749,damage:28},
- {id:'seraph',name:'Glass Seraph',hp:180,speed:3.6,r:.8,ai:'spiral',color:0x96f1e8,damage:16,flying:true},
- {id:'shade',name:'Shade',hp:145,speed:5.4,r:.7,ai:'blink',color:0x6e5786,damage:18},
- {id:'keeper',name:'Bell Keeper',hp:260,speed:2.3,r:1.0,ai:'rings',color:0xd1a149,damage:18},
- {id:'knight',name:'Mirror Knight',hp:300,speed:3.2,r:.9,ai:'burst',color:0x9eaed0,damage:20},
- {id:'spitter',name:'Spitter',hp:125,speed:2.8,r:.78,ai:'triple',color:0xb9dd56,damage:15},
- {id:'maw',name:'Maw',hp:210,speed:4.2,r:.95,ai:'chase',color:0x993e4b,damage:24},
- {id:'orbiter',name:'Orbiter',hp:155,speed:3.5,r:.72,ai:'satellite',color:0xffa26f,damage:17},
- {id:'sniper',name:'Hollow Sniper',hp:120,speed:2.6,r:.74,ai:'sniper',color:0xc4d8ff,damage:32},
- {id:'summoner',name:'Ash Summoner',hp:230,speed:2.2,r:.85,ai:'summoner',color:0xec7fa9,damage:16},
- {id:'mine',name:'Walking Mine',hp:75,speed:5.6,r:.62,ai:'mine',color:0xff8d57,damage:38},
- {id:'prism',name:'Prism Eye',hp:190,speed:2.7,r:.82,ai:'fan',color:0x9f8cff,damage:18,flying:true}
+{name:'Neon Crawler',hp:190,speed:4.6,r:.7,color:colors[0],ai:'chase',damage:22,xp:28},
+{name:'Pink Warden',hp:260,speed:3.6,r:.85,color:colors[1],ai:'shooter',damage:26,xp:42},
+{name:'Viridian Bat',hp:150,speed:6.2,r:.62,color:colors[2],ai:'orbit',damage:20,xp:28,flying:true},
+{name:'Amber Monk',hp:310,speed:3.2,r:.9,color:colors[3],ai:'radial',damage:25,xp:48},
+{name:'Violet Sniper',hp:210,speed:2.8,r:.72,color:colors[4],ai:'sniper',damage:38,xp:50},
+{name:'Scarlet Charger',hp:420,speed:3.8,r:1.02,color:colors[5],ai:'charge',damage:40,xp:62},
+{name:'Mint Seraph',hp:240,speed:4.2,r:.74,color:colors[6],ai:'spiral',damage:24,xp:46,flying:true},
+{name:'Acid Bell',hp:380,speed:2.6,r:1.0,color:colors[7],ai:'rings',damage:28,xp:60},
+{name:'Cobalt Knight',hp:520,speed:3.1,r:1.1,color:colors[8],ai:'burst',damage:32,xp:72},
+{name:'Orange Shade',hp:280,speed:4.5,r:.78,color:colors[9],ai:'blink',damage:30,xp:58},
+{name:'Teal Satellite',hp:340,speed:3.7,r:.9,color:colors[10],ai:'satellite',damage:28,xp:64},
+{name:'Lilac Herald',hp:460,speed:2.5,r:1.0,color:colors[11],ai:'fan',damage:34,xp:76}
 ];
+
 export const BOSSES=[
- {name:'THE RED ABBOT',hp:2600,color:0xcf3f57,pattern:'abbot'}, {name:'CLOCK EATER',hp:3900,color:0xd2af4b,pattern:'clock'},
- {name:'PALE WIDOW',hp:5200,color:0xe8e8f0,pattern:'widow'}, {name:'CHOIR BELOW',hp:6800,color:0x7452c6,pattern:'choir'},
- {name:'IRON SAINT',hp:8500,color:0xb98c65,pattern:'saint'}, {name:'NULL KING',hp:11000,color:0xdcdfea,pattern:'null'},
- {name:'MOTHER OF EYES',hp:14500,color:0x73d6bb,pattern:'eyes'}, {name:'LAST CATHEDRAL',hp:19000,color:0xffc86b,pattern:'cathedral'}
+{name:'NEON ARCHBISHOP',hp:5200,color:0xff3e88,pattern:'abbot'},
+{name:'CLOCK EATER MK.II',hp:6800,color:0xffbf45,pattern:'clock'},
+{name:'VOID CHOIR ENGINE',hp:8400,color:0x8f63ff,pattern:'choir'},
+{name:'THE GLASS TYRANT',hp:10400,color:0x6ffff0,pattern:'eyes'},
+{name:'LAST PALACE CORE',hp:13200,color:0xff5f5f,pattern:'cathedral'}
 ];
+
 export const UPGRADES=[
- {name:'Glass Cannon',desc:'+24% damage, -8% max HP',apply:p=>{p.damage*=1.24;p.maxHp*=.92;p.hp=Math.min(p.hp,p.maxHp)}},
- {name:'Quickblood',desc:'+16% fire/attack speed',apply:p=>p.attackSpeed*=1.16},
- {name:'Mercury Boots',desc:'+10% movement speed',apply:p=>p.speed*=1.10},
- {name:'Predator Lens',desc:'+8% critical chance',apply:p=>p.crit+=.08},
- {name:'Magnet Heart',desc:'+60% coin pickup radius',apply:p=>p.pickup*=1.6},
- {name:'Iron Marrow',desc:'+30 max HP, heal 30',apply:p=>{p.maxHp+=30;p.hp=Math.min(p.maxHp,p.hp+30)}},
- {name:'Executioner',desc:'+28% boss damage',apply:p=>p.bossDamage*=1.28},
- {name:'Ricochet Doctrine',desc:'+1 projectile pierce',apply:p=>p.pierceBonus++},
- {name:'Blink Step',desc:'Dash cooldown -18%',apply:p=>p.dashMax*=.82},
- {name:'Gravitic Coin',desc:'+30 coins now',apply:p=>p.coins+=30},
- {name:'Red Feast',desc:'Kills heal 2 HP',apply:p=>p.killHeal+=2},
- {name:'Thick Air',desc:'Enemy bullets move 8% slower',apply:p=>p.enemyBulletSlow*=.92}
+{name:'Overclock',desc:'+18% attack speed',apply:p=>p.attackSpeed*=1.18},
+{name:'Hardlight Plating',desc:'+45 max HP ve +45 heal',apply:p=>{p.maxHp+=45;p.hp=Math.min(p.maxHp,p.hp+45)}},
+{name:'Smart Optics',desc:'+25% aim assist gücü',apply:p=>p.aim*=1.25},
+{name:'Monomolecular Edge',desc:'+28% melee damage',apply:p=>p.melee*=1.28},
+{name:'Boss Protocol',desc:'+30% boss damage',apply:p=>p.bossDamage*=1.3},
+{name:'Mag-Coil',desc:'+60% coin çekim mesafesi',apply:p=>p.pickup*=1.6},
+{name:'Execution Cache',desc:'+12 heal per kill',apply:p=>p.killHeal+=12},
+{name:'Redline',desc:'+20% overall damage',apply:p=>p.damage*=1.2},
+{name:'Phase Boots',desc:'+14% movement speed',apply:p=>p.speed*=1.14}
 ];
+
 export const ROOM_THEMES=[
- {name:'Cross Vault',shape:'cross'}, {name:'Pillar Hall',shape:'pillars'}, {name:'Broken Gallery',shape:'gallery'}, {name:'Twin Courts',shape:'twin'}, {name:'Sunken Ring',shape:'ring'}, {name:'Narrow Chapel',shape:'chapel'}
+{name:'Grand Neon Nave',shape:'nave'},
+{name:'Reactor Gallery',shape:'gallery'},
+{name:'Royal Data Atrium',shape:'atrium'},
+{name:'Hangar Basilica',shape:'hangar'},
+{name:'Cryo Cloister',shape:'cloister'},
+{name:'Executive Chapel',shape:'chapel'},
+{name:'Orbital Throne Hall',shape:'throne'}
 ];
